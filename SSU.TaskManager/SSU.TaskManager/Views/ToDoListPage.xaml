@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SSU.TaskManager.Views.ToDoListPage"
+             Title="TODO">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="10, 20, 10, 0" />
+            <On Platform="Android, UWP" Value="10, 0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <StackLayout>
+        <ListView SeparatorVisibility="None" x:Name="TaskListView" ItemsSource="{Binding Tasks}">
+            <ListView.RowHeight>
+                <OnPlatform x:TypeArguments="x:Int32">
+                    <On Platform="iOS, Android" Value="80" />
+                    <On Platform="UWP" Value="90" />
+                </OnPlatform>
+            </ListView.RowHeight>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ContentView Padding="5">
+                            <Frame OutlineColor="White"
+                                   Padding="10">
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout>
+                                        <Label Text="{Binding Title}"
+                                               FontSize="25"
+                                               HorizontalOptions="Start"
+                                               VerticalOptions="Center"
+                                               x:Name="LabelTask"/>
+                                        <Button Text="Edit" FontSize="10" Clicked="OnDescription_Clicked"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </ContentView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Entry x:Name="description" Completed="TaskName_Completed" PropertyChanged="TaskName_Completed"/>
+        <Button Text="+" Clicked="OnAddTask_Clicked" />
+
+    </StackLayout>
+</ContentPage>

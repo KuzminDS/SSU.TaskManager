@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SSU.TaskManager.Views.TaskDescriptionView"
+             >
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="taskTitle" 
+                FontSize="25"
+                VerticalOptions="Start"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="CenterAndExpand" />
+            
+            <Label Text="Description: " FontSize="25" HorizontalOptions="Start" VerticalOptions="Center" />
+
+            <Entry x:Name="description" Completed="Description_Completed" PropertyChanged="Description_Completed"/>
+
+            <Label Text="Deadline: " FontSize="25" HorizontalOptions="Start" VerticalOptions="Center" />
+
+            <DatePicker x:Name="datePicker" PropertyChanged="Deadline_Completed"/>
+
+            <Button x:Name="saveChangesBtn" Text="Save changes" Clicked="OnSaveChanges_Clicked" />
+
+            <Button Text="Move in TODO" Clicked="MoveInToDo_Clicked"/>
+            <Button Text="Move in INPR" Clicked="MoveInInProgress_Clicked"/>
+            <Button Text="Move in DONE" Clicked="MoveInDone_Clicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

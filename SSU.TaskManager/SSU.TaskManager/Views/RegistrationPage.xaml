@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SSU.TaskManager.Views.RegistrationPage"
+             xmlns:vm="clr-namespace:SSU.TaskManager.ViewModels"
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="True">
+
+    <ContentPage.Content>
+        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+            <Label Text="Task Manager" HorizontalOptions="Center"/>
+            <Label Text="Registration"/>
+            
+            <Label Text="Last name"/>
+            <Entry Completed="LastName_Completed" PropertyChanged="LastName_Completed"/>
+
+            <Label Text="First name"/>
+            <Entry Completed="FirstName_Completed" PropertyChanged="FirstName_Completed"/>
+
+            <Label Text="Login"/>
+            <Entry Completed="Login_Completed" PropertyChanged="Login_Completed" />
+
+            <Label Text="Password"/>
+            <Entry IsPassword="True" Completed="Password_Completed" PropertyChanged="Password_Completed"/>
+
+            <Button VerticalOptions="Center" Text="Register" Clicked="Button_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
